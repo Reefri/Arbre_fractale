@@ -31,7 +31,7 @@ def arbre(distance,angle,iteration):
     for i in range(len(branches)):
         if np.random.choice(distribution)<branches[i][2] :
 
-            arbre(distance*branches[i][0],branches[i][1] +np.random.normal(0, 2) ,iteration-1) 
+            arbre(distance*branches[i][0],branches[i][1] +np.random.normal(0, dispertionBranche) ,iteration-1) 
 
 
     t.penup()
@@ -73,7 +73,7 @@ def main():
         t.goto(coordonnees[numeroArbre])
         t.pendown()
 
-        t.setheading(90 + np.random.normal(0, 5))
+        t.setheading(90 + np.random.normal(0, dispertionArbre))
 
         arbre(taille,0,maxIteration)
 
@@ -102,6 +102,9 @@ if __name__ == '__main__':
     ]
 
     distribution = np.arange(0, 1, 0.01)
+
+    dispertionBranche = 2
+    dispertionArbre = 5
 
     start_color1 = (139, 69, 30)  # Marron
     start_color2 = (122, 107, 66) # Marron
